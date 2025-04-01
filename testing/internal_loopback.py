@@ -3,7 +3,10 @@ import time
 import pigpio
 
 # This script is a self test of the chip, no cables appart from the clock (Raspberry clock to JCLK) are needed
-
+# To transform it into a physical loopback you just have to :
+#      - connect JTXA to JR1A or JR2A if you want to test the second reciever
+#      - connect JTXB to JR1B or JR2B if you want to test the second reciever
+#      - Set the TX control register at 0x00 in section 3
 # Pi clock generation
 pi = pigpio.pi()
 pi.set_mode(6, pigpio.ALT0)  # Set GPIO6 to ALT0 for GPCLK0
